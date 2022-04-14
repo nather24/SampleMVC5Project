@@ -1,0 +1,66 @@
+﻿@model EFDbFirstApproachExample.Models.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Product Details</h2>
+
+<table class="table">
+    <tr>
+        <td>Product id</td>
+        <td>@Model.ProductID</td>
+    </tr>
+    <tr>
+        <td>Product Name</td>
+        <td>@Model.ProductName</td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td>
+            @if (Model.Price.HasValue)
+            {
+            <span>@Model.Price.Value.ToString("C")</span>
+            }
+            
+        </td>
+    </tr>
+    <tr>
+        <td>Date Of Purchase</td>
+        <td>
+        @if(Model.DateOfPurchase.HasValue)
+            {
+            <span>@Model.DateOfPurchase.Value.ToString("d/M/yyyy")</span>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>Availability Status</td>
+        <td>@Model.AvailabilityStatus</td>
+    </tr>
+    <tr>
+        <td>Category Name</td>
+        <td>
+            @if (Model.CategoryID.HasValue)
+            {
+            <span> @Model.Category.CategoryName</span>
+            }
+
+        </td>
+    </tr>
+    <tr>
+        <td>Brand Name</td>
+        <td>
+            @if(Model.BrandID.HasValue)
+            {
+            <span> @Model.Brand.BrandName</span>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>Active</td>
+        <td>@Model.Active</td>
+    </tr>
+</table>
+
+<a href="/products/index">Back to Products</a>
